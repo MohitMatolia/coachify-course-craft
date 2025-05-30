@@ -61,7 +61,7 @@ const PricingSummary = ({ courseData, currentStep }: PricingSummaryProps) => {
     >
       <div className="glass-card p-6 rounded-2xl">
         <div className="flex items-center gap-2 mb-4">
-          <Sparkles className="w-5 h-5 text-orange-400" />
+          <Sparkles className="w-5 h-5 text-purple-400" />
           <h3 className="text-xl font-bold text-white">Your Custom Plan</h3>
         </div>
 
@@ -69,14 +69,14 @@ const PricingSummary = ({ courseData, currentStep }: PricingSummaryProps) => {
         <div className="space-y-3 mb-6">
           {courseData.focusAreas.length > 0 && (
             <div className="flex items-center justify-between">
-              <span className="text-purple-200 text-sm">Subjects ({courseData.focusAreas.length})</span>
+              <span className="text-purple-100 text-sm">Subjects ({courseData.focusAreas.length})</span>
               <span className="text-white font-medium">₹{(courseData.focusAreas.length * 2999).toLocaleString('en-IN')}</span>
             </div>
           )}
           
           {courseData.learningMode && (
             <div className="flex items-center justify-between">
-              <span className="text-purple-200 text-sm capitalize">{courseData.learningMode} Classes</span>
+              <span className="text-purple-100 text-sm capitalize">{courseData.learningMode} Classes</span>
               <span className="text-white font-medium">
                 ₹{courseData.learningMode === 'live' ? '5,000' : courseData.learningMode === 'hybrid' ? '3,000' : '1,000'}
               </span>
@@ -85,14 +85,14 @@ const PricingSummary = ({ courseData, currentStep }: PricingSummaryProps) => {
           
           {courseData.mentors.length > 0 && (
             <div className="flex items-center justify-between">
-              <span className="text-purple-200 text-sm">Mentors ({courseData.mentors.length})</span>
+              <span className="text-purple-100 text-sm">Mentors ({courseData.mentors.length})</span>
               <span className="text-white font-medium">₹{(courseData.mentors.length * 1999).toLocaleString('en-IN')}</span>
             </div>
           )}
           
           {courseData.books && (
             <div className="flex items-center justify-between">
-              <span className="text-purple-200 text-sm capitalize">{courseData.books === 'both' ? 'Combo' : courseData.books} Books</span>
+              <span className="text-purple-100 text-sm capitalize">{courseData.books === 'both' ? 'Combo' : courseData.books} Books</span>
               <span className="text-white font-medium">
                 ₹{courseData.books === 'printed' ? '2,999' : courseData.books === 'digital' ? '1,999' : '3,999'}
               </span>
@@ -101,7 +101,7 @@ const PricingSummary = ({ courseData, currentStep }: PricingSummaryProps) => {
           
           {courseData.testSeries && (
             <div className="flex items-center justify-between">
-              <span className="text-purple-200 text-sm capitalize">{courseData.testSeries} Test Series</span>
+              <span className="text-purple-100 text-sm capitalize">{courseData.testSeries} Test Series</span>
               <span className="text-white font-medium">
                 ₹{courseData.testSeries === 'basic' ? '999' : courseData.testSeries === 'advanced' ? '1,999' : '2,999'}
               </span>
@@ -110,7 +110,7 @@ const PricingSummary = ({ courseData, currentStep }: PricingSummaryProps) => {
           
           {courseData.doubtSolving && (
             <div className="flex items-center justify-between">
-              <span className="text-purple-200 text-sm capitalize">{courseData.doubtSolving === 'app' ? 'DoubtPucho' : courseData.doubtSolving} Support</span>
+              <span className="text-purple-100 text-sm capitalize">{courseData.doubtSolving === 'app' ? 'DoubtPucho' : courseData.doubtSolving} Support</span>
               <span className="text-white font-medium">
                 ₹{courseData.doubtSolving === 'whatsapp' ? '499' : courseData.doubtSolving === 'app' ? '799' : '1,499'}
               </span>
@@ -120,21 +120,21 @@ const PricingSummary = ({ courseData, currentStep }: PricingSummaryProps) => {
           {/* WAT/PI Preparation */}
           {courseData.watPiPrep.watPractice && (
             <div className="flex items-center justify-between">
-              <span className="text-purple-200 text-sm">WAT Practice</span>
+              <span className="text-purple-100 text-sm">WAT Practice</span>
               <span className="text-white font-medium">₹1,499</span>
             </div>
           )}
           
           {courseData.watPiPrep.mockPI && (
             <div className="flex items-center justify-between">
-              <span className="text-purple-200 text-sm">Mock PI</span>
+              <span className="text-purple-100 text-sm">Mock PI</span>
               <span className="text-white font-medium">₹1,999</span>
             </div>
           )}
           
           {courseData.watPiPrep.iimAlumniPanel && (
             <div className="flex items-center justify-between">
-              <span className="text-purple-200 text-sm">IIM Alumni Panel</span>
+              <span className="text-purple-100 text-sm">IIM Alumni Panel</span>
               <span className="text-white font-medium">₹2,499</span>
             </div>
           )}
@@ -165,7 +165,7 @@ const PricingSummary = ({ courseData, currentStep }: PricingSummaryProps) => {
         {currentPrice > 0 && (
           <div className="border-t border-purple-400/20 pt-4">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-purple-300 line-through">₹{originalPrice.toLocaleString('en-IN')}</span>
+              <span className="text-purple-200 line-through">₹{originalPrice.toLocaleString('en-IN')}</span>
               <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-full">
                 Save ₹{savings.toLocaleString('en-IN')}
               </span>
@@ -178,30 +178,30 @@ const PricingSummary = ({ courseData, currentStep }: PricingSummaryProps) => {
             )}
             <div className="flex items-center justify-between">
               <span className="text-white font-bold text-lg">Final Price</span>
-              <span className="text-orange-400 font-bold text-2xl">₹{currentPrice.toLocaleString('en-IN')}</span>
+              <span className="text-purple-300 font-bold text-2xl">₹{currentPrice.toLocaleString('en-IN')}</span>
             </div>
           </div>
         )}
 
         {/* Features */}
         <div className="mt-6 space-y-2">
-          <div className="flex items-center gap-2 text-purple-200 text-sm">
-            <Star className="w-4 h-4 text-orange-400" />
+          <div className="flex items-center gap-2 text-purple-100 text-sm">
+            <Star className="w-4 h-4 text-purple-400" />
             <span>Lifetime Access</span>
           </div>
-          <div className="flex items-center gap-2 text-purple-200 text-sm">
-            <Trophy className="w-4 h-4 text-orange-400" />
+          <div className="flex items-center gap-2 text-purple-100 text-sm">
+            <Trophy className="w-4 h-4 text-purple-400" />
             <span>Performance Analytics</span>
           </div>
-          <div className="flex items-center gap-2 text-purple-200 text-sm">
-            <Users className="w-4 h-4 text-orange-400" />
+          <div className="flex items-center gap-2 text-purple-100 text-sm">
+            <Users className="w-4 h-4 text-purple-400" />
             <span>Peer Learning Groups</span>
           </div>
         </div>
 
         {/* CTA Buttons */}
         <div className="mt-6 space-y-3">
-          <Button className="w-full bg-gradient-to-r from-purple-600 to-orange-500 hover:from-purple-700 hover:to-orange-600 text-white">
+          <Button className="w-full bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-700 hover:to-purple-600 text-white">
             Save My Plan
           </Button>
           <Button variant="outline" className="w-full glass-button text-white border-purple-400 hover:bg-purple-500/20">
@@ -213,15 +213,15 @@ const PricingSummary = ({ courseData, currentStep }: PricingSummaryProps) => {
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          className="mt-6 p-4 bg-gradient-to-r from-purple-600/20 to-orange-500/20 rounded-xl border border-purple-400/30"
+          className="mt-6 p-4 bg-gradient-to-r from-purple-600/20 to-purple-500/20 rounded-xl border border-purple-400/30"
         >
           <div className="flex items-start gap-3">
-            <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-orange-400 rounded-full flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-purple-400 rounded-full flex items-center justify-center">
               <MessageCircle className="w-4 h-4 text-white" />
             </div>
             <div>
-              <p className="text-purple-200 text-sm font-medium">CoachBot Tip:</p>
-              <p className="text-purple-300 text-xs mt-1">
+              <p className="text-purple-100 text-sm font-medium">CoachBot Tip:</p>
+              <p className="text-purple-200 text-xs mt-1">
                 {currentStep <= 4 ? "Take your time choosing the right combination for better results!" : 
                  currentStep <= 6 ? "You're doing great! Add-ons can significantly boost your preparation." :
                  "You're almost done! Review your selections carefully."}

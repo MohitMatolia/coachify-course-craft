@@ -51,11 +51,11 @@ const StepEight = ({ courseData, updateCourseData }: StepEightProps) => {
         animate={{ opacity: 1, y: 0 }}
         className="text-center mb-8"
       >
-        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-purple-600 px-4 py-2 rounded-full mb-4">
+        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-purple-500 px-4 py-2 rounded-full mb-4">
           <Gift className="w-5 h-5 text-white" />
           <span className="text-white font-bold">🎁 Included with Your Plan</span>
         </div>
-        <p className="text-purple-200 text-lg">
+        <p className="text-purple-100 text-lg">
           Congratulations! These premium services are included absolutely free with your course.
         </p>
       </motion.div>
@@ -81,11 +81,11 @@ const StepEight = ({ courseData, updateCourseData }: StepEightProps) => {
               </div>
               
               <h3 className="text-white font-bold text-lg mb-2">{addon.title}</h3>
-              <p className="text-purple-200 text-sm mb-4">{addon.description}</p>
+              <p className="text-purple-100 text-sm mb-4">{addon.description}</p>
               
               <ul className="space-y-2 mb-4">
                 {addon.features.map((feature, idx) => (
-                  <li key={idx} className="text-purple-300 text-xs flex items-center gap-2">
+                  <li key={idx} className="text-purple-200 text-xs flex items-center gap-2">
                     <div className="w-1 h-1 bg-green-400 rounded-full"></div>
                     {feature}
                   </li>
@@ -94,7 +94,7 @@ const StepEight = ({ courseData, updateCourseData }: StepEightProps) => {
               
               <div className="flex items-center justify-between">
                 <span className="text-green-400 font-bold text-lg">FREE</span>
-                <span className="text-purple-300 text-sm line-through">{addon.originalPrice}</span>
+                <span className="text-purple-200 text-sm line-through">{addon.originalPrice}</span>
               </div>
             </motion.div>
           );
@@ -106,15 +106,15 @@ const StepEight = ({ courseData, updateCourseData }: StepEightProps) => {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.5 }}
-        className="mt-8 p-6 bg-gradient-to-r from-purple-600/20 to-orange-500/20 rounded-xl border border-orange-400/30"
+        className="mt-8 p-6 bg-gradient-to-r from-purple-600/20 to-purple-500/20 rounded-xl border border-purple-400/30"
       >
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 mb-3">
-            <Sparkles className="w-6 h-6 text-orange-400" />
+            <Sparkles className="w-6 h-6 text-purple-400" />
             <h3 className="text-2xl font-bold text-white">Total Savings: ₹{totalSavings.toLocaleString('en-IN')}</h3>
-            <Sparkles className="w-6 h-6 text-orange-400" />
+            <Sparkles className="w-6 h-6 text-purple-400" />
           </div>
-          <p className="text-purple-200 text-lg">
+          <p className="text-purple-100 text-lg">
             These premium services are worth ₹{totalSavings.toLocaleString('en-IN')} but included free with your Coachify course!
           </p>
           <div className="mt-4 inline-flex items-center gap-2 bg-green-500/20 px-4 py-2 rounded-full">

@@ -29,7 +29,7 @@ const ProgressBar = ({ currentStep, totalSteps, percentage }: ProgressBarProps) 
   return (
     <div className="glass-card p-6 rounded-xl mx-auto max-w-4xl">
       <div className="flex justify-between items-center mb-4">
-        <span className="text-purple-200 text-sm font-medium">
+        <span className="text-purple-100 text-sm font-medium">
           Building your dream plan...
         </span>
         <span className="text-white text-sm font-bold">
@@ -39,9 +39,9 @@ const ProgressBar = ({ currentStep, totalSteps, percentage }: ProgressBarProps) 
       
       {/* Progress Bar */}
       <div className="relative">
-        <div className="h-2 bg-purple-900/30 rounded-full overflow-hidden">
+        <div className="h-2 bg-purple-800/40 rounded-full overflow-hidden">
           <motion.div
-            className="h-full bg-gradient-to-r from-purple-500 to-orange-400"
+            className="h-full bg-gradient-to-r from-purple-500 to-purple-400"
             initial={{ width: 0 }}
             animate={{ width: `${percentage}%` }}
             transition={{ duration: 0.5, ease: "easeOut" }}
@@ -58,7 +58,7 @@ const ProgressBar = ({ currentStep, totalSteps, percentage }: ProgressBarProps) 
                     ? 'bg-green-500 border-green-500 text-white'
                     : step === currentStep
                     ? 'bg-purple-600 border-purple-400 text-white'
-                    : 'bg-purple-900/30 border-purple-700 text-purple-400'
+                    : 'bg-purple-800/30 border-purple-600 text-purple-300'
                 }`}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -69,7 +69,7 @@ const ProgressBar = ({ currentStep, totalSteps, percentage }: ProgressBarProps) 
                   <span className="text-xs font-bold">{step}</span>
                 )}
               </motion.div>
-              <span className="text-xs text-purple-300 mt-1 hidden sm:block">
+              <span className="text-xs text-purple-200 mt-1 hidden sm:block">
                 {getStepLabel(step)}
               </span>
             </div>

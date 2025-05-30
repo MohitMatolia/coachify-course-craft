@@ -128,10 +128,10 @@ const CourseBuilder = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-8"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 bg-gradient-to-r from-purple-300 to-orange-300 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 bg-gradient-to-r from-purple-200 to-purple-100 bg-clip-text text-transparent">
             Build Your Own CAT Course
           </h1>
-          <p className="text-lg text-purple-200 max-w-2xl mx-auto">
+          <p className="text-lg text-purple-100 max-w-2xl mx-auto">
             Customize your preparation journey with India's most trusted personalized CAT coaching platform
           </p>
         </motion.div>
@@ -152,7 +152,7 @@ const CourseBuilder = () => {
               className="glass-card p-6 md:p-8 rounded-2xl"
             >
               <div className="mb-6">
-                <span className="text-purple-300 text-sm font-medium">Step {currentStep} of {totalSteps}</span>
+                <span className="text-purple-200 text-sm font-medium">Step {currentStep} of {totalSteps}</span>
                 <h2 className="text-2xl md:text-3xl font-bold text-white mt-1">
                   {getStepTitle()}
                 </h2>
@@ -178,13 +178,13 @@ const CourseBuilder = () => {
                   <Button
                     onClick={nextStep}
                     disabled={!canProceed()}
-                    className="bg-gradient-to-r from-purple-600 to-orange-500 hover:from-purple-700 hover:to-orange-600 text-white px-8"
+                    className="bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-700 hover:to-purple-600 text-white px-8"
                   >
                     Next Step
                     <ChevronRight className="w-4 h-4 ml-2" />
                   </Button>
                 ) : (
-                  <Button className="bg-gradient-to-r from-orange-500 to-purple-600 hover:from-orange-600 hover:to-purple-700 text-white px-8">
+                  <Button className="bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-700 hover:to-purple-600 text-white px-8">
                     Finalize My Plan
                     <CheckCircle className="w-4 h-4 ml-2" />
                   </Button>
