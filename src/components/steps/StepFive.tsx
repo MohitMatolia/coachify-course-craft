@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MessageCircle, Smartphone, Video, CheckCircle, Clock, Users, Zap } from 'lucide-react';
+import { Trophy, Target, Crown, CheckCircle, FileText, Timer, BarChart } from 'lucide-react';
 import { CourseData } from '../CourseBuilder';
 
 interface StepFiveProps {
@@ -10,78 +10,78 @@ interface StepFiveProps {
 }
 
 const StepFive = ({ courseData, updateCourseData }: StepFiveProps) => {
-  const doubtSolvingOptions = [
+  const testSeries = [
     {
-      id: 'whatsapp',
-      title: 'WhatsApp Support',
-      description: 'Quick text-based doubt solving',
-      features: ['24/7 WhatsApp support', 'Text & image queries', 'Response within 30 mins', 'Group discussions'],
-      price: '₹499',
-      icon: MessageCircle,
-      color: 'from-green-500 to-emerald-500',
-      responseTime: '30 mins',
-      availability: '24/7'
+      id: 'basic',
+      title: 'Basic Test Series',
+      description: 'Foundation level practice tests',
+      features: ['15 Full-length tests', 'Sectional tests', 'Basic analytics', 'PDF solutions'],
+      price: '₹999',
+      icon: FileText,
+      color: 'from-green-500 to-blue-500',
+      tests: 15,
+      analytics: 'Basic'
     },
     {
-      id: 'app',
-      title: 'In-App Chat',
-      description: 'Dedicated app-based doubt solving',
-      features: ['In-app messaging', 'File & media sharing', 'Doubt history tracking', 'Expert responses', 'Smart search'],
-      price: '₹799',
-      icon: Smartphone,
+      id: 'advanced',
+      title: 'Advanced Test Series',
+      description: 'Comprehensive practice with detailed analysis',
+      features: ['25 Full-length tests', 'Sectional tests', 'Advanced analytics', 'Video solutions', 'Peer comparison'],
+      price: '₹1,999',
+      icon: Target,
       color: 'from-blue-500 to-purple-500',
-      badge: 'Recommended',
-      responseTime: '15 mins',
-      availability: '18 hours'
+      badge: 'Popular',
+      tests: 25,
+      analytics: 'Advanced'
     },
     {
-      id: 'live',
-      title: 'Live Doubt Sessions',
-      description: 'Interactive video sessions with experts',
-      features: ['Live video sessions', 'Screen sharing', 'Instant clarification', 'Record sessions', 'Group doubt solving', '1-on-1 sessions'],
-      price: '₹1,499',
-      icon: Video,
-      color: 'from-purple-500 to-pink-500',
+      id: 'toppers',
+      title: 'Toppers Edition',
+      description: 'Ultimate preparation for 99+ percentile',
+      features: ['40 Full-length tests', 'Sectional tests', 'AI-powered analytics', 'Video solutions', 'Personal mentor feedback', 'Toppers study group'],
+      price: '₹2,999',
+      icon: Crown,
+      color: 'from-purple-500 to-orange-500',
       badge: 'Premium',
-      responseTime: 'Instant',
-      availability: 'Scheduled'
+      tests: 40,
+      analytics: 'AI-Powered'
     }
   ];
 
-  const selectDoubtSolving = (optionId: string) => {
-    updateCourseData('doubtSolving', optionId);
+  const selectTestSeries = (seriesId: string) => {
+    updateCourseData('testSeries', seriesId);
   };
 
   return (
     <div>
       <p className="text-purple-200 mb-6">
-        Choose your preferred doubt solving method. Getting timely help is crucial for maintaining your study momentum.
+        Choose your test series package. Regular practice with mock tests is crucial for CAT success.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {doubtSolvingOptions.map((option, index) => {
-          const isSelected = courseData.doubtSolving === option.id;
-          const Icon = option.icon;
+        {testSeries.map((series, index) => {
+          const isSelected = courseData.testSeries === series.id;
+          const Icon = series.icon;
           
           return (
             <motion.div
-              key={option.id}
+              key={series.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ scale: 1.02, rotateY: 5 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => selectDoubtSolving(option.id)}
+              onClick={() => selectTestSeries(series.id)}
               className={`relative p-6 rounded-xl cursor-pointer transition-all duration-300 ${
                 isSelected 
                   ? 'glass-card-selected border-2 border-orange-400' 
                   : 'glass-card border border-purple-400/30 hover:border-purple-400/60'
               }`}
             >
-              {option.badge && (
+              {series.badge && (
                 <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
                   <span className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs px-3 py-1 rounded-full">
-                    {option.badge}
+                    {series.badge}
                   </span>
                 </div>
               )}
@@ -96,27 +96,27 @@ const StepFive = ({ courseData, updateCourseData }: StepFiveProps) => {
                 </motion.div>
               )}
               
-              <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${option.color} flex items-center justify-center mb-4`}>
+              <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${series.color} flex items-center justify-center mb-4`}>
                 <Icon className="w-6 h-6 text-white" />
               </div>
               
-              <h3 className="text-white font-bold text-lg mb-2">{option.title}</h3>
-              <p className="text-purple-200 text-sm mb-4">{option.description}</p>
+              <h3 className="text-white font-bold text-lg mb-2">{series.title}</h3>
+              <p className="text-purple-200 text-sm mb-4">{series.description}</p>
 
               {/* Stats */}
               <div className="flex items-center gap-4 mb-4">
                 <div className="flex items-center gap-1">
-                  <Clock className="w-4 h-4 text-orange-400" />
-                  <span className="text-purple-200 text-xs">{option.responseTime}</span>
+                  <Timer className="w-4 h-4 text-orange-400" />
+                  <span className="text-purple-200 text-xs">{series.tests} Tests</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <Zap className="w-4 h-4 text-orange-400" />
-                  <span className="text-purple-200 text-xs">{option.availability}</span>
+                  <BarChart className="w-4 h-4 text-orange-400" />
+                  <span className="text-purple-200 text-xs">{series.analytics}</span>
                 </div>
               </div>
               
               <ul className="space-y-2 mb-4">
-                {option.features.map((feature, idx) => (
+                {series.features.map((feature, idx) => (
                   <li key={idx} className="text-purple-300 text-xs flex items-center gap-2">
                     <div className="w-1 h-1 bg-orange-400 rounded-full"></div>
                     {feature}
@@ -125,21 +125,21 @@ const StepFive = ({ courseData, updateCourseData }: StepFiveProps) => {
               </ul>
               
               <div className="text-orange-400 font-bold text-lg">
-                {option.price}
+                {series.price}
               </div>
             </motion.div>
           );
         })}
       </div>
 
-      {courseData.doubtSolving && (
+      {courseData.testSeries && (
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           className="mt-6 p-4 bg-green-500/10 border border-green-400/30 rounded-xl"
         >
           <p className="text-green-300 text-sm">
-            ✅ Perfect! You've chosen {doubtSolvingOptions.find(o => o.id === courseData.doubtSolving)?.title} for doubt resolution.
+            ✅ Great choice! You've selected the {testSeries.find(s => s.id === courseData.testSeries)?.title}.
           </p>
         </motion.div>
       )}

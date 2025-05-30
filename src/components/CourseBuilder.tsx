@@ -11,13 +11,22 @@ import StepThree from './steps/StepThree';
 import StepFour from './steps/StepFour';
 import StepFive from './steps/StepFive';
 import StepSix from './steps/StepSix';
+import StepSeven from './steps/StepSeven';
+import StepEight from './steps/StepEight';
 
 export interface CourseData {
   focusAreas: string[];
   learningMode: string;
   mentors: string[];
+  books: string;
   testSeries: string;
   doubtSolving: string;
+  watPiPrep: {
+    watPractice: boolean;
+    mockPI: boolean;
+    iimAlumniPanel: boolean;
+  };
+  complimentaryAddons: string[];
 }
 
 const CourseBuilder = () => {
@@ -26,11 +35,18 @@ const CourseBuilder = () => {
     focusAreas: [],
     learningMode: '',
     mentors: [],
+    books: '',
     testSeries: '',
-    doubtSolving: ''
+    doubtSolving: '',
+    watPiPrep: {
+      watPractice: false,
+      mockPI: false,
+      iimAlumniPanel: false
+    },
+    complimentaryAddons: ['resume-building', 'sop-evaluation', 'iim-profilizer']
   });
 
-  const totalSteps = 6;
+  const totalSteps = 8;
   const progressPercentage = (currentStep / totalSteps) * 100;
 
   const updateCourseData = (field: keyof CourseData, value: any) => {
@@ -57,9 +73,26 @@ const CourseBuilder = () => {
       case 1: return courseData.focusAreas.length > 0;
       case 2: return courseData.learningMode !== '';
       case 3: return courseData.mentors.length > 0;
-      case 4: return courseData.testSeries !== '';
-      case 5: return courseData.doubtSolving !== '';
+      case 4: return courseData.books !== '';
+      case 5: return courseData.testSeries !== '';
+      case 6: return courseData.doubtSolving !== '';
+      case 7: return true; // WAT/PI prep is optional
+      case 8: return true; // Complimentary add-ons are pre-selected
       default: return true;
+    }
+  };
+
+  const getStepTitle = () => {
+    switch (currentStep) {
+      case 1: return "Choose Your Subjects";
+      case 2: return "Select Learning Mode";
+      case 3: return "Pick Your Mentors";
+      case 4: return "Choose Books";
+      case 5: return "Add Test Series";
+      case 6: return "Choose Doubt Solving";
+      case 7: return "WAT/PI Preparation";
+      case 8: return "Complimentary Add-ons";
+      default: return "";
     }
   };
 
@@ -76,7 +109,11 @@ const CourseBuilder = () => {
       case 5:
         return <StepFive courseData={courseData} updateCourseData={updateCourseData} />;
       case 6:
-        return <StepSix courseData={courseData} />;
+        return <StepSix courseData={courseData} updateCourseData={updateCourseData} />;
+      case 7:
+        return <StepSeven courseData={courseData} updateCourseData={updateCourseData} />;
+      case 8:
+        return <StepEight courseData={courseData} updateCourseData={updateCourseData} />;
       default:
         return null;
     }
@@ -117,12 +154,7 @@ const CourseBuilder = () => {
               <div className="mb-6">
                 <span className="text-purple-300 text-sm font-medium">Step {currentStep} of {totalSteps}</span>
                 <h2 className="text-2xl md:text-3xl font-bold text-white mt-1">
-                  {currentStep === 1 && "Choose Your Focus Areas"}
-                  {currentStep === 2 && "Select Learning Mode"}
-                  {currentStep === 3 && "Pick Your Mentors"}
-                  {currentStep === 4 && "Add Test Series"}
-                  {currentStep === 5 && "Choose Doubt Solving"}
-                  {currentStep === 6 && "Review Your Course"}
+                  {getStepTitle()}
                 </h2>
               </div>
 

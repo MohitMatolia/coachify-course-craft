@@ -12,6 +12,20 @@ interface ProgressBarProps {
 const ProgressBar = ({ currentStep, totalSteps, percentage }: ProgressBarProps) => {
   const steps = Array.from({ length: totalSteps }, (_, i) => i + 1);
 
+  const getStepLabel = (step: number) => {
+    switch (step) {
+      case 1: return "Subjects";
+      case 2: return "Mode";
+      case 3: return "Mentors";
+      case 4: return "Books";
+      case 5: return "Tests";
+      case 6: return "Doubts";
+      case 7: return "WAT/PI";
+      case 8: return "Add-ons";
+      default: return "";
+    }
+  };
+
   return (
     <div className="glass-card p-6 rounded-xl mx-auto max-w-4xl">
       <div className="flex justify-between items-center mb-4">
@@ -56,12 +70,7 @@ const ProgressBar = ({ currentStep, totalSteps, percentage }: ProgressBarProps) 
                 )}
               </motion.div>
               <span className="text-xs text-purple-300 mt-1 hidden sm:block">
-                {step === 1 && "Focus"}
-                {step === 2 && "Mode"}
-                {step === 3 && "Mentors"}
-                {step === 4 && "Tests"}
-                {step === 5 && "Doubts"}
-                {step === 6 && "Review"}
+                {getStepLabel(step)}
               </span>
             </div>
           ))}
